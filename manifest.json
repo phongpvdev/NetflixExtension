@@ -1,0 +1,27 @@
+{
+    "name": "Netflix extension",
+    "version": "0.0.0.1",
+    "manifest_version": 2,
+    "description": "A Chromium extension to increate watching Netflix experiemce",
+    "icons": {
+        "16": "icons/16x16.png",
+        "32": "icons/32x32.png",
+        "48": "icons/48x48.png",
+        "128": "icons/128x128.png"
+    },
+    "browser_action": {
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
+    "content_scripts": [{
+        "matches": [
+            "*://*.netflix.com/*"
+        ],
+        "js": [
+            "js/skip_intro.js"
+        ]
+    }],
+    "background": {
+        "service_worker": "js/background.js"
+    }
+}
